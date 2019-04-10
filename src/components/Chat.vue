@@ -1,16 +1,6 @@
 <template>
-  <div>
-    <ul>
-      <li v-for="(message, index) in messages" key="index" class="list">
-        <div class="bubble">{{message.user}}</div>
-        <div class="bubble bubble--robot">{{message.bot}}</div>
-      </li>
-      <li v-if="y">
-        <button @click="confetti">Awesome</button>
-        <button @click="restart">restart</button>
-      </li>
-    </ul>
-
+  <div id="chat" ref="chatCard" class="chat-container">
+      <Bubble v-for="(message, index) in messages" :message ="message"></Bubble>
     <div v-if="!y">
       <button @click="yes">yes</button>
       <button @click="no">no</button>
@@ -21,6 +11,7 @@
 <script>
 import { getTime } from "../data/tasks.js";
 import { getRandom } from "../data/tasks.js";
+import Bubble from "./Bubble.vue";
 const defaultMessage = [
   {
     user: "I am bored",
@@ -29,18 +20,26 @@ const defaultMessage = [
   }
 ];
 export default {
+  components: {
+    Bubble
+  },
   data() {
     return {
       messages: [
         {
           user: "I am bored",
           bot: getRandom(),
-          time: "00:00"
+          time: getTime()
         }
       ],
       y: false
     };
   },
+
+  mounted() {
+    console.log(this.$el);
+  },
+
   methods: {
     yes() {
       alert("yes");
@@ -49,11 +48,16 @@ export default {
 
     no() {
       let reject = {
-        user: "No",
+        user: "No 👎",
         bot: getRandom(),
-        time: "00:00"
+        time: getTime()
       };
       this.messages.push(reject);
+    },
+
+    scrollToBottom() {
+      let container = this.$el.querySelector("chat");
+      container.scrollTop = container.scrollHeight;
     },
 
     confetti() {},
@@ -64,29 +68,19 @@ export default {
 </script>
 
 <style>
-.bubble {
-  min-height: 20px;
-  max-width: 200px;
-  padding: 1em;
-  margin-bottom: 8px;
-  align-items: "flex-end";
-  background-color: #fff;
-  color: #181844;
-  border-radius: 20px;
-  box-shadow: 0 2px 4px 0 rgba(210, 210, 210, 0.5);
-}
-
-.bubble--robot {
-  align-items: "flex-start";
-  background-color: #ff5f38;
-  color: #fff;
-}
-
-.list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: "flex-end";
-  width: 100%;
+.chat-container {
+  position: relative;
+  margin-left: 50px;
+  z-index: 1;
+  min-width: 320px;
+  max-width: 375px;
+  height: 500px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 50px 20px 20px;
+  background: #fff;
+  border-radius: 50px;
+  z-index: 3;
+  box-shadow: 0 32px 44px 0 rgba(64, 68, 90, 0.2);
 }
 </style>

@@ -2,9 +2,7 @@
   <div id="app">
     <div class="card">
       <Welcome></Welcome>
-      <div class="chat-container">
-        <Chat></Chat>
-      </div>
+      <Chat></Chat>
     </div>
   </div>
 </template>
@@ -19,6 +17,10 @@ export default {
     Welcome,
     Chat
   }
+  // mounted() {
+  //   const mobile = this.$refs.chatCard;
+  //   mobile.scrollTop = mobile.lastElementChild.offsetTop;
+  // }
 };
 </script>
 
