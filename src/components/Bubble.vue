@@ -1,13 +1,11 @@
 <template>
   <div>
-    <transition name="fade">
-      <div class="list" v-if="message">
-        <div>
-          <div class="bubble">{{message.user}}</div>
-          <div class="time">{{message.time}}</div>
-        </div>
+    <div class="list" v-if="message">
+      <div>
+        <div class="bubble">{{message.user}}</div>
+        <div class="time">{{message.time}}</div>
       </div>
-    </transition>
+    </div>
     <div class="list list--robot">
       <div>
         <div class="avatar">🤖</div>
@@ -78,8 +76,9 @@ export default {
   justify-content: flex-start;
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;

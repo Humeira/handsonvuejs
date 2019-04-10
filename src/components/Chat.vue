@@ -1,6 +1,6 @@
 <template>
   <div id="chat" ref="chatCard" class="chat-container">
-    <Bubble v-for="(message, index) in messages" :message="message"></Bubble>
+    <Bubble v-for="(message, index) in messages" :message="message" :key="index"></Bubble>
     <div class="buttons-wrapper" v-if="!y">
       <button class="btn" @click="yes">Yes 🎉</button>
       <button class="btn" @click="no">No 💩</button>
@@ -16,7 +16,7 @@
 import { getTime } from "../data/tasks.js";
 import { getRandom } from "../data/tasks.js";
 import Bubble from "./Bubble.vue";
-import { setTimeout } from "timers";
+
 const defaultMessage = [
   {
     user: "I am bored, HELP!!!",
@@ -54,12 +54,8 @@ export default {
         bot: getRandom(),
         time: getTime()
       };
+      this.scrollToBottom();
       this.messages.push(reject);
-    },
-
-    scrollToBottom() {
-      let container = this.$el.querySelector("chat");
-      container.scrollTop = container.scrollHeight;
     },
 
     showConfetti() {
@@ -81,7 +77,11 @@ export default {
           time: getTime()
         }
       ];
-      this.$confetti.stop()
+      this.$confetti.stop();
+    },
+
+    scrollToBottom() {
+      this.$el.scrollTop = this.$el.scrollHeight;
     }
   }
 };
@@ -95,7 +95,7 @@ export default {
   min-width: 320px;
   max-width: 375px;
   height: 500px;
-  overflow-y: auto;
+  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   padding: 50px 20px 20px;
   background: #fff;

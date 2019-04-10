@@ -17,16 +17,11 @@ export default {
     Welcome,
     Chat
   }
-  // mounted() {
-  //   const mobile = this.$refs.chatCard;
-  //   mobile.scrollTop = mobile.lastElementChild.offsetTop;
-  // }
 };
 </script>
 
 <style>
 body {
-  /* background-color: #181844; */
   background-color: #fff;
 }
 
@@ -72,27 +67,12 @@ a:focus {
   display: flex;
   flex-direction: row;
   padding: 40px;
-  max-width: 1000px;
+  max-width: 800px;
   width: 100%;
   margin: 0 auto;
   background: #181844;
   box-shadow: 0 32px 44px 0 rgba(64, 68, 90, 0.2);
   border-radius: 30px;
   justify-content: space-between;
-}
-.chat-container {
-  position: relative;
-  margin-left: 50px;
-  z-index: 1;
-  min-width: 320px;
-  max-width: 375px;
-  height: 500px;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  padding: 50px 20px 20px;
-  background: #fff;
-  border-radius: 50px;
-  z-index: 3;
-  box-shadow: 0 32px 44px 0 rgba(64, 68, 90, 0.2);
 }
 </style>
