@@ -1,11 +1,13 @@
 <template>
   <div>
-    <div class="list">
-      <div>
-        <div class="bubble">{{message.user}}</div>
-        <div class="time">{{message.time}}</div>
+    <transition name="fade">
+      <div class="list" v-if="message">
+        <div>
+          <div class="bubble">{{message.user}}</div>
+          <div class="time">{{message.time}}</div>
+        </div>
       </div>
-    </div>
+    </transition>
     <div class="list list--robot">
       <div>
         <div class="avatar">🤖</div>
@@ -74,5 +76,12 @@ export default {
 .list--robot {
   -webkit-box-pack: start;
   justify-content: flex-start;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>

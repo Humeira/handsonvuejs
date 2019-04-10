@@ -26,7 +26,7 @@ export const getRandom = function() {
 
 export const getTime = function() {
   const dt = new Date();
-  const min = (dt.getMinutes < 10 ? "0" : "") + dt.getMinutes();
+  const min = (dt.getMinutes() < 10 ? "0" : "") + dt.getMinutes();
   const hours = dt.getHours();
   return hours + ":" + min;
 };
