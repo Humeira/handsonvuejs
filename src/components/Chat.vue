@@ -16,6 +16,7 @@
 import { getTime } from "../data/tasks.js";
 import { getRandom } from "../data/tasks.js";
 import Bubble from "./Bubble.vue";
+import { setTimeout } from 'timers';
 
 const defaultMessage = [
   {
@@ -81,7 +82,10 @@ export default {
     },
 
     scrollToBottom() {
-      this.$el.scrollTop = this.$el.scrollHeight;
+      setTimeout(()=>{
+        console.log("timing")
+        this.$refs.chatCard.scrollTop += 5000;
+      },5)
     }
   }
 };
