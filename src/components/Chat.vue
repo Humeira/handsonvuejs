@@ -46,6 +46,7 @@ export default {
       };
       this.messages.push(accept);
       this.y = true;
+      this.scrollToBottom();
       this.$confetti.start();
     },
 
@@ -82,10 +83,9 @@ export default {
     },
 
     scrollToBottom() {
-      setTimeout(()=>{
-        console.log("timing")
-        this.$refs.chatCard.scrollTop += 5000;
-      },5)
+      setTimeout(() => {
+        this.$refs.chatCard.scrollTop += 1000;
+      }, 0);
     }
   }
 };
@@ -104,7 +104,7 @@ export default {
   padding: 50px 20px 20px;
   background: #fff;
   border-radius: 50px;
-  z-index: 3;
+  z-index: 0;
   box-shadow: 0 32px 44px 0 rgba(64, 68, 90, 0.2);
 }
 

@@ -28,8 +28,6 @@ body {
 #app {
   display: flex;
   height: 100%;
-  /* align-items: flex-end;
-  justify-content: center; */
   margin: 40px;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

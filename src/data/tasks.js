@@ -13,7 +13,17 @@ export let tasks = [
   "Try not to think of pandas. It's harder than you think it is",
   "Say a word continuously until it loses its meaning",
   "Say the alphabet backward.",
-  "See how many marshmallows you can put in your mouth"
+  "See how many marshmallows you can put in your mouth",
+  "Go fishing",
+  "Learn Morse code",
+  "Do the macarena till you can't stand on your feet",
+  "Watch Game of Thrones",
+  "Medidate",
+  "Sort your wardrobe by colour code",
+  "Go skyding",
+  "Go windsurfing",
+  "Practice your shower singing",
+  "Try to lick your nose"
 ];
 
 export const random = function(param) {
