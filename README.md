@@ -1,5 +1,7 @@
 # devcon-demo
 
+Heavily inspired by [boredaf.app](https://github.com/wabisabi-js/boredaf.app) which is built using ReactJS.
+
 ## Project setup
 ```
 npm install
